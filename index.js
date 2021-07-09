@@ -6,22 +6,24 @@ var progBars = [];
 
 
 function addServer() {
-    var serverDetails = {};
-    var serverId = Math.floor((Math.random() * 100) + 1);
-    var serverName = `Server${serverId}`;
-    serverDetails.id = serverId;
-    serverDetails.name = serverName;
-    serverDetails.status = "AVAILABLE";
-    servers.push(serverDetails);
-    if (tasks.length > 0) {
-        tasksInProgress = this.assignTaskToServer();
-        this.createTaskDiv(tasks);
-        this.createServerDiv(servers);
-        if (tasksInProgress.length > 0) {
-            this.tasksInProgressDiv(tasksInProgress);
+    if (servers.length <= 10) {
+        var serverDetails = {};
+        var serverId = Math.floor((Math.random() * 100) + 1);
+        var serverName = `Server${serverId}`;
+        serverDetails.id = serverId;
+        serverDetails.name = serverName;
+        serverDetails.status = "AVAILABLE";
+        servers.push(serverDetails);
+        if (tasks.length > 0) {
+            tasksInProgress = this.assignTaskToServer();
+            this.createTaskDiv(tasks);
+            this.createServerDiv(servers);
+            if (tasksInProgress.length > 0) {
+                this.tasksInProgressDiv(tasksInProgress);
+            }
+        } else {
+            this.createServerDiv(servers);
         }
-    } else {
-        this.createServerDiv(servers);
     }
 }
 
