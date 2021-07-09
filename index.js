@@ -6,7 +6,7 @@ var progBars = [];
 
 
 function addServer() {
-    if (servers.length < 11) {
+    if (servers.length < 10) {
         var serverDetails = {};
         var serverId = Math.floor((Math.random() * 100) + 1);
         var serverName = `Server${serverId}`;
